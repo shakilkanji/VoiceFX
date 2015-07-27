@@ -32,14 +32,6 @@ class PlaySoundsViewController: UIViewController {
         // Do any additional setup after loading the view.
         stopPlayback.enabled = false
         
-//        if var filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3") {
-//            var filePathURL = NSURL.fileURLWithPath(filePath)
-//            
-//        }
-//        else {
-//            println("the filepath is empty")
-//        }
-        
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL, error: nil)
         audioPlayer.enableRate = true
         
@@ -53,6 +45,9 @@ class PlaySoundsViewController: UIViewController {
     }
     
     func playAudio() {
+        audioEngine.stop()
+        audioEngine.reset()
+        
         audioPlayer.stop()
         audioPlayer.currentTime = 0.0
         audioPlayer.play()

@@ -42,29 +42,40 @@
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hcp-FJ-4vH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHH-gp-LZz">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="w6E-Z0-acR" secondAttribute="centerX" id="1GX-cz-mtR"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="YIF-XX-BEX" secondAttribute="bottom" constant="20" id="8O0-o4-9hR"/>
+                            <constraint firstItem="QHH-gp-LZz" firstAttribute="top" secondItem="8SC-Gc-8ZW" secondAttribute="bottom" constant="8" id="9Nk-H1-HBT"/>
                             <constraint firstAttribute="centerX" secondItem="YIF-XX-BEX" secondAttribute="centerX" id="KC9-Ml-oYS"/>
                             <constraint firstAttribute="centerY" secondItem="8SC-Gc-8ZW" secondAttribute="centerY" id="Nul-FV-DbH"/>
                             <constraint firstItem="w6E-Z0-acR" firstAttribute="top" secondItem="8SC-Gc-8ZW" secondAttribute="bottom" constant="8" id="QZs-Gv-vra"/>
                             <constraint firstAttribute="centerX" secondItem="8SC-Gc-8ZW" secondAttribute="centerX" id="Z38-ao-ogB"/>
+                            <constraint firstAttribute="centerX" secondItem="QHH-gp-LZz" secondAttribute="centerX" id="nOi-zI-fgP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="w6E-Z0-acR"/>
                                 <exclude reference="YIF-XX-BEX"/>
                                 <exclude reference="8SC-Gc-8ZW"/>
+                                <exclude reference="QHH-gp-LZz"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="8O0-o4-9hR"/>
-                                <exclude reference="1GX-cz-mtR"/>
-                                <exclude reference="QZs-Gv-vra"/>
                                 <exclude reference="Nul-FV-DbH"/>
                                 <exclude reference="Z38-ao-ogB"/>
+                                <exclude reference="9Nk-H1-HBT"/>
+                                <exclude reference="nOi-zI-fgP"/>
+                                <exclude reference="1GX-cz-mtR"/>
+                                <exclude reference="QZs-Gv-vra"/>
                                 <exclude reference="KC9-Ml-oYS"/>
+                                <exclude reference="8O0-o4-9hR"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -72,14 +83,17 @@
                                 <include reference="w6E-Z0-acR"/>
                                 <include reference="YIF-XX-BEX"/>
                                 <include reference="8SC-Gc-8ZW"/>
+                                <include reference="QHH-gp-LZz"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="8O0-o4-9hR"/>
-                                <include reference="1GX-cz-mtR"/>
-                                <include reference="QZs-Gv-vra"/>
                                 <include reference="Nul-FV-DbH"/>
                                 <include reference="Z38-ao-ogB"/>
+                                <include reference="9Nk-H1-HBT"/>
+                                <include reference="nOi-zI-fgP"/>
+                                <include reference="1GX-cz-mtR"/>
+                                <include reference="QZs-Gv-vra"/>
                                 <include reference="KC9-Ml-oYS"/>
+                                <include reference="8O0-o4-9hR"/>
                             </mask>
                         </variation>
                     </view>
@@ -88,6 +102,7 @@
                         <outlet property="recordButton" destination="8SC-Gc-8ZW" id="qE7-JA-RgJ"/>
                         <outlet property="recordingInProgress" destination="w6E-Z0-acR" id="QoR-8b-yEs"/>
                         <outlet property="stopRecording" destination="YIF-XX-BEX" id="MTi-wh-w5R"/>
+                        <outlet property="tapToRecord" destination="QHH-gp-LZz" id="WFR-GT-VAV"/>
                         <segue destination="PJu-Se-wk9" kind="show" identifier="stopRecording" id="HMy-VA-dFm"/>
                     </connections>
                 </viewController>
@@ -177,16 +192,16 @@
                                 <exclude reference="Poa-Uf-TrB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DXn-r9-vQw"/>
-                                <exclude reference="yPY-CF-oUo"/>
-                                <exclude reference="RhH-aV-6kz"/>
-                                <exclude reference="bfc-or-ga6"/>
+                                <exclude reference="9Kn-IW-8rf"/>
                                 <exclude reference="Bao-By-hG2"/>
                                 <exclude reference="YUR-hc-Zzg"/>
+                                <exclude reference="RhH-aV-6kz"/>
+                                <exclude reference="bfc-or-ga6"/>
+                                <exclude reference="xV4-Ze-im9"/>
                                 <exclude reference="AJh-IY-h6z"/>
                                 <exclude reference="qbr-h3-dW1"/>
-                                <exclude reference="xV4-Ze-im9"/>
-                                <exclude reference="9Kn-IW-8rf"/>
+                                <exclude reference="DXn-r9-vQw"/>
+                                <exclude reference="yPY-CF-oUo"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -198,16 +213,16 @@
                                 <include reference="Poa-Uf-TrB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="DXn-r9-vQw"/>
-                                <include reference="yPY-CF-oUo"/>
-                                <include reference="RhH-aV-6kz"/>
-                                <include reference="bfc-or-ga6"/>
+                                <include reference="9Kn-IW-8rf"/>
                                 <include reference="Bao-By-hG2"/>
                                 <include reference="YUR-hc-Zzg"/>
+                                <include reference="RhH-aV-6kz"/>
+                                <include reference="bfc-or-ga6"/>
+                                <include reference="xV4-Ze-im9"/>
                                 <include reference="AJh-IY-h6z"/>
                                 <include reference="qbr-h3-dW1"/>
-                                <include reference="xV4-Ze-im9"/>
-                                <include reference="9Kn-IW-8rf"/>
+                                <include reference="DXn-r9-vQw"/>
+                                <include reference="yPY-CF-oUo"/>
                             </mask>
                         </variation>
                     </view>
