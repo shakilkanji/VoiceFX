@@ -134,15 +134,37 @@
                                     <action selector="stopPlayback:" destination="PJu-Se-wk9" eventType="touchUpInside" id="bxp-3C-QBj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFO-NU-wLU">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Chipmunk">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playChipmunk:" destination="PJu-Se-wk9" eventType="touchUpInside" id="Pv4-w4-pJu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Poa-Uf-TrB">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Vader">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playVader:" destination="PJu-Se-wk9" eventType="touchUpInside" id="On6-1j-TAn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yY1-aP-frt" firstAttribute="top" secondItem="IRe-hX-OoH" secondAttribute="bottom" constant="20" id="9Kn-IW-8rf"/>
+                            <constraint firstItem="Poa-Uf-TrB" firstAttribute="top" secondItem="GGB-KG-KOu" secondAttribute="bottom" constant="94" id="AJh-IY-h6z"/>
+                            <constraint firstItem="DFO-NU-wLU" firstAttribute="leading" secondItem="VeL-Nh-jhW" secondAttribute="leadingMargin" constant="24" id="Bao-By-hG2"/>
                             <constraint firstItem="zH6-za-04d" firstAttribute="leading" secondItem="VeL-Nh-jhW" secondAttribute="leadingMargin" constant="24" id="DXn-r9-vQw"/>
                             <constraint firstItem="GGB-KG-KOu" firstAttribute="top" secondItem="pDD-5y-oBs" secondAttribute="bottom" constant="98" id="RhH-aV-6kz">
                                 <variation key="widthClass=compact" constant="63"/>
                             </constraint>
+                            <constraint firstItem="DFO-NU-wLU" firstAttribute="top" secondItem="zH6-za-04d" secondAttribute="bottom" constant="94" id="YUR-hc-Zzg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GGB-KG-KOu" secondAttribute="trailing" constant="26" id="bfc-or-ga6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Poa-Uf-TrB" secondAttribute="trailing" constant="26" id="qbr-h3-dW1"/>
                             <constraint firstAttribute="centerX" secondItem="IRe-hX-OoH" secondAttribute="centerX" constant="-0.5" id="xV4-Ze-im9"/>
                             <constraint firstItem="zH6-za-04d" firstAttribute="top" secondItem="pDD-5y-oBs" secondAttribute="bottom" constant="63" id="yPY-CF-oUo"/>
                         </constraints>
@@ -151,14 +173,20 @@
                                 <exclude reference="zH6-za-04d"/>
                                 <exclude reference="GGB-KG-KOu"/>
                                 <exclude reference="IRe-hX-OoH"/>
+                                <exclude reference="DFO-NU-wLU"/>
+                                <exclude reference="Poa-Uf-TrB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="9Kn-IW-8rf"/>
-                                <exclude reference="RhH-aV-6kz"/>
-                                <exclude reference="bfc-or-ga6"/>
-                                <exclude reference="xV4-Ze-im9"/>
                                 <exclude reference="DXn-r9-vQw"/>
                                 <exclude reference="yPY-CF-oUo"/>
+                                <exclude reference="RhH-aV-6kz"/>
+                                <exclude reference="bfc-or-ga6"/>
+                                <exclude reference="Bao-By-hG2"/>
+                                <exclude reference="YUR-hc-Zzg"/>
+                                <exclude reference="AJh-IY-h6z"/>
+                                <exclude reference="qbr-h3-dW1"/>
+                                <exclude reference="xV4-Ze-im9"/>
+                                <exclude reference="9Kn-IW-8rf"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -166,21 +194,29 @@
                                 <include reference="zH6-za-04d"/>
                                 <include reference="GGB-KG-KOu"/>
                                 <include reference="IRe-hX-OoH"/>
+                                <include reference="DFO-NU-wLU"/>
+                                <include reference="Poa-Uf-TrB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="9Kn-IW-8rf"/>
-                                <include reference="RhH-aV-6kz"/>
-                                <include reference="bfc-or-ga6"/>
-                                <include reference="xV4-Ze-im9"/>
                                 <include reference="DXn-r9-vQw"/>
                                 <include reference="yPY-CF-oUo"/>
+                                <include reference="RhH-aV-6kz"/>
+                                <include reference="bfc-or-ga6"/>
+                                <include reference="Bao-By-hG2"/>
+                                <include reference="YUR-hc-Zzg"/>
+                                <include reference="AJh-IY-h6z"/>
+                                <include reference="qbr-h3-dW1"/>
+                                <include reference="xV4-Ze-im9"/>
+                                <include reference="9Kn-IW-8rf"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="chipmunkPlayback" destination="DFO-NU-wLU" id="4LD-a3-oI3"/>
                         <outlet property="fastPlayback" destination="GGB-KG-KOu" id="vDK-2F-Ll3"/>
                         <outlet property="slowPlayback" destination="zH6-za-04d" id="pbc-IZ-rya"/>
                         <outlet property="stopPlayback" destination="IRe-hX-OoH" id="XPN-r1-zpo"/>
+                        <outlet property="vaderPlayback" destination="Poa-Uf-TrB" id="Foy-X3-sNt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbO-Hq-TZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -207,9 +243,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Chipmunk" width="100" height="100"/>
         <image name="Fast" width="100" height="100"/>
         <image name="Microphone" width="100" height="100"/>
         <image name="Slow" width="100" height="100"/>
         <image name="Stop" width="50" height="50"/>
+        <image name="Vader" width="100" height="100"/>
     </resources>
 </document>

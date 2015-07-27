@@ -17,8 +17,15 @@ class PlaySoundsViewController: UIViewController {
     
     @IBOutlet weak var stopPlayback: UIButton!
     
+    @IBOutlet weak var chipmunkPlayback: UIButton!
+    
+    @IBOutlet weak var vaderPlayback: UIButton!
+    
     var audioPlayer:AVAudioPlayer!
     var receivedAudio:RecordedAudio!
+    
+    var audioEngine:AVAudioEngine!
+    var audioFile: AVAudioFile!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +42,9 @@ class PlaySoundsViewController: UIViewController {
         
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL, error: nil)
         audioPlayer.enableRate = true
+        
+        audioEngine = AVAudioEngine()
+        audioFile = AVAudioFile(forReading: receivedAudio.filePathURL, error: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +71,36 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func stopPlayback(sender: UIButton) {
         audioPlayer.stop()
-        stopPlayback.enabled = false
+    }
+    
+    @IBAction func playChipmunk(sender: UIButton) {
+        playAudioWithVariablePitch(1000)
+    }
+    
+    @IBAction func playVader(sender: UIButton) {
+        playAudioWithVariablePitch(-1000)
+    }
+    
+    func playAudioWithVariablePitch(pitch: Float) {
+        audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
+        
+        var audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        
+        var changePitchEffect = AVAudioUnitTimePitch()
+        changePitchEffect.pitch = pitch
+        audioEngine.attachNode(changePitchEffect)
+        
+        audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+        audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        audioEngine.startAndReturnError(nil)
+        
+        stopPlayback.enabled = true
+        audioPlayerNode.play()
     }
     
     /*
